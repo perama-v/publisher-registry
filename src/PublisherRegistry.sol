@@ -5,13 +5,9 @@ pragma solidity ^0.8.17;
 /// @dev Associates an IPNS with a topic string, allowing a publisher IPNS to be easily found.
 contract PublisherRegistry {
     struct Publisher {
-        /// @notice Explain to an end user what this does
-        /// @dev Explain to a developer any extra details
-        /// @return Documents the return variables of a contract’s function state variable
+        // The msg.sender of the transaction to register an IPNS.
         address submitted_by;
-        /// @notice Explain to an end user what this does
-        /// @dev Explain to a developer any extra details
-        /// @return Documents the return variables of a contract’s function state variable
+        // The IPNS being stored for a particular topic.
         string ipns;
     }
 
