@@ -36,9 +36,10 @@ contract PublisherRegistry {
     /// @dev A convenience functionn that gets the IPNS values that are mapped to the given topic string.
     /// @return Returns an array of IPNS strings.
     function getIPNSForTopic(string memory topic) public view returns (string[] memory) {
-        string[] memory ipns_strings;
-        for (uint i = 0; i < publisherHashMap[topic].length; i++) {
-            ipns_strings[i] = publisherHashMap[topic][i].ipns;
+        Publisher[] memory publishers = publisherHashMap[topic];
+        string[] memory ipns_strings = new string[](publishers.length);
+        for (uint i = 0; i < publishers.length; i++) {
+            ipns_strings[i] = publishers[i].ipns;
         }
         return ipns_strings;
     }
